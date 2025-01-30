@@ -1,7 +1,7 @@
 const Course = require('../../model/courseSchema')
 
 const allCourseController = async (req, res)=>{
-    const getcourse = await Course.find({"isPublish":true}).sort("-name").select('name author')
+    const getcourse = await Course.find({"isPublish":true, "tags":/.*backend.*/i}).sort("-name").select('name author')
     res.send(getcourse)
 }
 
