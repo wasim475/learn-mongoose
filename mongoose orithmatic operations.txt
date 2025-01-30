@@ -5,6 +5,8 @@ neq - not equal to
 gte - grater than or equal
 lt - less than
 lse - less than or equal
+in
+nin- not in
 
 find producs
 
