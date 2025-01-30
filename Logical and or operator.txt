@@ -1,0 +1,9 @@
+Logical and or operator
+
+const productsByAuthorOrPublish = await products.find({
+  $or: [{ deviceName: "vivo" }, { isRelease: true }]
+});
+
+const productsByAuthorAndPublish = await products.find({
+  $and: [{ deviceName: "vivo" }, { isRelease: true }]
+});

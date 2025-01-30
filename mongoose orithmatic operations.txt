@@ -1,0 +1,18 @@
+gt - grater than
+eq - equal to
+ne- not equal
+neq - not equal to
+gte - grater than or equal
+lt - less than
+lse - less than or equal
+
+find producs
+
+const allProducts = await products.find().limit(10).sort({name:1}).select({name:1, tags:1})
+
+select- 👉 এটি শুধু name এবং tags ফিল্ড রিটার্ন করবে, বাকি ফিল্ডগুলো আসবে না।
+
+const productsByPrice= await products.Find({price:{$gte:10,$lte:20}})
+
+const productByFilterPrice = await products.find({price:{$in:[10,20,30]})
+			        
