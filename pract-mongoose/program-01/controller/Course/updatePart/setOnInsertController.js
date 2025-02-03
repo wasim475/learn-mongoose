@@ -1,11 +1,13 @@
 const Course = require('../../../model/courseSchema')
 
 const setOnInsertController = async (req,res)=>{
-    const { courseStatus}= req.body
+    const {courseId, courseStatus}= req.body
+    const existing = await Course.findOne({"_id": courseId})
+    console.log(existing?.status)
     const course = await Course.updateOne(
-        {$and:[{"author": /.*Mosh.*/},{"price":{$lt:20}}] },
+        {"_id":courseId },
         {$set:{"status": courseStatus}},
-        {upsert:false, writeConcern: { w: "majority" }},
+        {upsert:true, writeConcern:{w: "majority"}, strict:false}
     )
 
     res.send(course)
