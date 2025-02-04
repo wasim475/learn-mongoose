@@ -5,8 +5,10 @@ const courseAbove15Controller = require("../../controller/Course/find part/cours
 const courseByNameController = require("../../controller/Course/find part/courseByNameController");
 const paginationController = require("../../controller/Course/find part/paginationController");
 const updateCorseController = require("../../controller/Course/find part/upadateCourseController");
+const validationlCourseController = require('../../controller/Course/Create/validationlCourseController');
 const _ = express.Router();
 _.post("/course", courseController);
+_.post("/createcoursewithvalidatetion", validationlCourseController);
 _.get("/allcourse", allCourseController);
 _.get("/courseabove15", courseAbove15Controller);
 _.get("/coursebyname", courseByNameController);

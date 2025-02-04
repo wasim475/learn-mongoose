@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const {Schema}= mongoose
-
+ 
 const Course = new Schema({
     name:{
         type: String,
@@ -15,28 +15,34 @@ const Course = new Schema({
     // Custom Validation
     tags:{
         type: Array,
-        
+         
         validate:{
             validator: function(value){
-                return value.length > 0
+                return value && value.length > 0
             },
             message:"A course have atleast one tag."
         }
     },
     // async validate
-    price:{
+    price: {
         type: Number,
-       validate:{
-        isAsync: true,
-        validator: function(value. callback) {
-           setTimeout(() => {
-            const result = value ? && value>0
-            callback(result)
-           }, 4000);
+        validate: {
+          validator: function(value) {
+            return new Promise((resolve, reject) => {
+              setTimeout(() => {
+                const result = value && value > 0;
+                if (result) {
+                  resolve(true); // সঠিক হলে resolve হবে
+                } else {
+                  reject(new Error("Price must be greater than 0")); // না হলে reject হবে
+                }
+              }, 4000); // 4 সেকেন্ডের বিলম্ব
+            });
+          },
+          message: "Price must be greater than 0"
         }
-         message: "Price must be greater than 0"
-       }
-    }
+      }
+      
 })
 
-module.exports = mongoose.model("Course", Course)
+module.exports = mongoose.model("ValidationCourse", Course)
