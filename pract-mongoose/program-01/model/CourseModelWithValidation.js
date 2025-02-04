@@ -12,6 +12,7 @@ const Course = new Schema({
         type:String,
         required: function(){return this.name}
     },
+    // Custom Validation
     tags:{
         type: Array,
         
@@ -21,6 +22,20 @@ const Course = new Schema({
             },
             message:"A course have atleast one tag."
         }
+    },
+    // async validate
+    price:{
+        type: Number,
+       validate:{
+        isAsync: true,
+        validator: function(value. callback) {
+           setTimeout(() => {
+            const result = value ? && value>0
+            callback(result)
+           }, 4000);
+        }
+         message: "Price must be greater than 0"
+       }
     }
 })
 
