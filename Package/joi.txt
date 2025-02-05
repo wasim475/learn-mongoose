@@ -1,0 +1,91 @@
+Joi কী এবং কেন ব্যবহার করা হয়?
+Joi হল একটি data validation লাইব্রেরি, যা Node.js-এ ফর্ম বা API-তে পাঠানো ডাটা ভ্যালিডেট করতে ব্যবহৃত হয়। এটি নিশ্চিত করে যে ইনপুট ডাটা সঠিক ফরম্যাটে আছে কিনা এবং অনাকাঙ্ক্ষিত ডাটা (যেমন ভুল টাইপ, খালি ফিল্ড, ছোট/বড় স্ট্রিং ইত্যাদি) ফিল্টার করে।
+
+Joi ইনস্টল করা:
+
+npm install joi
+Joi এর ব্যবহার (উদাহরণসহ)
+১. সাধারণ ভ্যালিডেশন
+const Joi = require('joi');
+
+// স্কিমা তৈরি (Validation Rules)
+const schema = Joi.object({
+    name: Joi.string().min(3).max(30).required(),
+    age: Joi.number().integer().min(18).max(60).required(),
+    email: Joi.string().email().required(),
+});
+
+// ইনপুট ডাটা
+const userInput = {
+    name: "Wasim",
+    age: 28,
+    email: "wasim@example.com"
+};
+
+// ভ্যালিডেশন করা
+const { error, value } = schema.validate(userInput);
+
+if (error) {
+    console.log("Validation Error:", error.details[0].message);
+} else {
+    console.log("Validated Data:", value);
+}
+👉 যদি ইনপুট ডাটা সঠিক থাকে, তাহলে Validated Data প্রিন্ট হবে।
+👉 যদি ভুল ইনপুট দাও (যেমন name ৩ অক্ষরের কম বা age ১৮ বছরের কম), তাহলে Validation Error দেখাবে।
+
+২. Express.js-এর সাথে Joi ব্যবহার
+
+const express = require('express');
+const Joi = require('joi');
+
+const app = express();
+app.use(express.json());
+
+// Joi Schema
+const userSchema = Joi.object({
+    username: Joi.string().min(3).max(20).required(),
+    password: Joi.string().min(6).required(),
+    email: Joi.string().email().required()
+});
+
+// API Route
+app.post('/register', (req, res) => {
+    const { error } = userSchema.validate(req.body);
+    
+    if (error) {
+        return res.status(400).json({ message: error.details[0].message });
+    }
+
+    res.json({ message: "User registered successfully!" });
+});
+
+// সার্ভার চালু করা
+app.listen(3000, () => console.log("Server running on port 3000"));
+কীভাবে কাজ করে?
+/register রুটে username, password, email পাঠালে Joi সেটা চেক করবে।
+ভুল ইনপুট হলে 400 Bad Request রেসপন্স দেবে।
+সঠিক হলে "User registered successfully!" দেখাবে।
+৩. কাস্টম মেসেজ সেট করা
+
+const schema = Joi.object({
+    username: Joi.string().min(3).max(20).required()
+        .messages({
+            "string.empty": "Username is required!",
+            "string.min": "Username must be at least 3 characters!",
+            "string.max": "Username cannot exceed 20 characters!"
+        }),
+});
+
+const { error } = schema.validate({ username: "" });
+
+if (error) {
+    console.log(error.details[0].message);
+}
+👉 এখানে Joi.messages() ব্যবহার করে কাস্টম এরর মেসেজ সেট করা হয়েছে।
+
+Joi কেন ব্যবহার করা হয়?
+✅ User Input Validation: ব্যবহারকারীর দেওয়া ইনপুট সঠিক কিনা তা যাচাই করা।
+✅ Error Handling: ভুল ইনপুট হলে সুন্দরভাবে হ্যান্ডেল করা।
+✅ Schema-Based Validation: সহজে Rules (Schema) সেট করে ইনপুট চেক করা।
+✅ Security: SQL Injection, XSS-এর মতো আক্রমণ থেকে রক্ষা পেতে অপ্রত্যাশিত ইনপুট ব্লক করা।
+✅ Better Code Management: ম্যানুয়ালি if-else চেকিং করার দরকার নেই, Joi দিয়ে সহজেই ভ্যালিডেশন করা যায়।
