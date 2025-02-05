@@ -33,7 +33,7 @@ const Course = new Schema({
                 const result = value && value > 0;
                 if (result) {
                   resolve(true); // সঠিক হলে resolve হবে
-                } else {
+                } else { 
                   reject(new Error("Price must be greater than 0")); // না হলে reject হবে
                 }
               }, 4000); // 4 সেকেন্ডের বিলম্ব
