@@ -38,9 +38,17 @@ const Course = new Schema({
                 }
               }, 4000); // 4 সেকেন্ডের বিলম্ব
             });
+
           },
           message: "Price must be greater than 0"
-        }
+        },
+        get: (v)=> Math.round(v),
+        set: (v)=> Math.round(v)
+      },
+      publisher:{
+        type:String,
+        require:true,
+        lowercase: true
       }
       
 })
