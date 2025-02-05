@@ -2,9 +2,9 @@ const Cinema = require('../../../model/cinemaModel')
 const validateGenres = require('../../../utility/validationGenres')
 
 const createCinemaGenrasController = async (req,res)=>{
-    const {name, director} = req.body
+    const {name, genre, director} = req.body
     try {
-        const cinema = await new Cinema({name,director})
+        const cinema = await new Cinema({name, genre, director})
         await cinema.save()
         res.send(cinema)
     } catch (err) { 

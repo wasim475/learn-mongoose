@@ -13,6 +13,13 @@ const CinemaSchema = new Schema({
             message:"name have atleast 3 charatar."
         }
     },
+    genre:{
+        type:String,
+        validate:{
+            validator: (value)=> value.length>3,
+            message:"write genre atleast 3 character long."
+        },
+    },
     director:{
         type:String,
         validate:{
@@ -21,7 +28,8 @@ const CinemaSchema = new Schema({
             },
             message: "director name atleast 4 character long."
         }
-    }
+    },
+    
 })
 
 const Cinema = mongoose.model("Cinema", CinemaSchema)
