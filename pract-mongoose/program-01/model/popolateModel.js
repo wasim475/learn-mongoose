@@ -2,10 +2,12 @@ const mongoose = require("mongoose")
 const { validate } = require('./courseSchema')
 const {Schema} = mongoose
 
+
 const TeamSchema = new Schema({
     name:{
         type:String,
         require:true,
+        maxlength: 7,
         validate:{
             validator: (value)=> value && value.length > 2,
             message:"write team name in 3 character."
