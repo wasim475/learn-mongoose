@@ -13,7 +13,7 @@ const TeamSchema = new Schema({
             message:"write team name in 3 character."
         },
     },
-    Batter: {
+    batter: {
         type: mongoose.Schema.Types.ObjectId,
         ref:"Batter"
     }
