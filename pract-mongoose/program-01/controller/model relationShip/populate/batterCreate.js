@@ -1,9 +1,9 @@
 const { Batters } = require('../../../model/popolateModel')
 
 const createBatter = async (req, res)=>{
-    const {batterName} = req.body
+    const {batterName, teamId} = req.body
     try {
-        const batter = await new Batters({name: batterName})
+        const batter = await new Batters({name: batterName, teamId})
         await batter.save()
         res.send(batter)
     } catch (err) {
