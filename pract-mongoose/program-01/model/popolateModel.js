@@ -7,16 +7,13 @@ const TeamSchema = new Schema({
     name:{
         type:String,
         require:true,
-        maxlength: 7,
+        maxlength: 10,
         validate:{
             validator: (value)=> value && value.length > 2,
             message:"write team name in 3 character."
         },
     },
-    batter: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref:"Batter"
-    }
+   
 })  
 
 const BatterSchema = new Schema({
@@ -26,6 +23,10 @@ const BatterSchema = new Schema({
             validator: (value)=> value && value.length>3,
             message:"Batter name must be atleast 3 character long."
         }
+    },
+    teamId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"team"
     }
 })
 
