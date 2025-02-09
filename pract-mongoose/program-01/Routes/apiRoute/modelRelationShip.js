@@ -6,10 +6,12 @@ const createEMTeam = require('../../controller/model relationShip/referencing/cr
 const createEMBatter = require('../../controller/model relationShip/referencing/createEMBatter')
 const createEMBatterWithArr = require('../../controller/model relationShip/referencing/createEMBatterwithArr')
 const addembatterwitharr = require('../../controller/model relationShip/referencing/addEMBatterwithArr')
+const removeEMBatterwithArr = require('../../controller/model relationShip/referencing/removeEMBatterwithArr')
 const _ = express.Router()
 
 _.post("/createembatter",createEMBatter)
 _.post("/createembatterwitharr",createEMBatterWithArr)
+_.delete("/removeemateam",removeEMBatterwithArr)
 _.post("/addembatterwitharr",addembatterwitharr)
 _.post("/createbatter",createBatter)
 _.post("/createteam",createTeam)
