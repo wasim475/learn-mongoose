@@ -1,4 +1,5 @@
 const { BatterEM, TeamEM } = require('../../../model/embeddingModel');
+const { TeamEMA, BatterEMA } = require('../../../model/embeddingWithArray');
 const { Batters } = require("../../../model/referencingModel");
 
 const createEMBatterWithArr = async (req, res) => {
@@ -6,7 +7,7 @@ const createEMBatterWithArr = async (req, res) => {
   try {
     const team = await TeamEM.findOne({"_id":teamId})
     console.log(team)
-    const batter = await new BatterEM({ "name": batterName, "teamInfo": team })
+    const batter = await new BatterEMA({ "name": batterName, "teamInfo": [team] })
     await batter.save();
     // console.log(batter.teamInfo.name)
     res.send(batter);
