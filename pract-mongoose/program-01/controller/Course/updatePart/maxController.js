@@ -1,4 +1,4 @@
-const Course = require('../../../model/courseSchema')
+const Course = require('../../../model/PracticeModel/courseSchema')
 
 const maxController = async (req, res)=>{
     const {maxPrice}= req.body

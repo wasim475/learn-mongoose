@@ -1,4 +1,4 @@
-const { Team } = require("../../../model/referencingModel");
+const { Team } = require("../../../model/PracticeModel/referencingModel");
 
 const createTeam = async (req, res) => {
   const { teamName } = req.body;

@@ -1,4 +1,4 @@
-const { TeamEM, BatterEM } = require('../../../model/embeddingModel');
+const { TeamEM, BatterEM } = require('../../../model/PracticeModel/embeddingModel');
 
 
 const createEMTeam = async (req, res) => {

@@ -1,4 +1,4 @@
-const Cinema = require('../../../model/cinemaModel')
+const Cinema = require('../../../model/PracticeModel/cinemaModel')
 const validateGenres = require('../../../utility/validationGenres')
 
 const createCinemaGenrasController = async (req,res)=>{

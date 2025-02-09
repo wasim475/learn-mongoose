@@ -1,4 +1,4 @@
-const course = require("../../../model/courseSchema");
+const course = require("../../../model/PracticeModel/courseSchema");
 
 const courseController = async (req, res) => {
   const { name, author, price, tags } = req.body;

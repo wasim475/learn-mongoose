@@ -1,4 +1,4 @@
-const { BatterEMA } = require('../../../model/embeddingWithArray')
+const { BatterEMA } = require('../../../model/PracticeModel/embeddingWithArray')
 
 const addembatterwitharr = async(req,res)=>{
     const{teamName, batterId}= req.body

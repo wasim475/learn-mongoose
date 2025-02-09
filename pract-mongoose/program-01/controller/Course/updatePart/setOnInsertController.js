@@ -1,4 +1,4 @@
-const Course = require('../../../model/courseSchema')
+const Course = require('../../../model/PracticeModel/courseSchema')
  
 const setOnInsertController = async (req,res)=>{
     const {courseId, courseStatus}= req.body

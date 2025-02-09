@@ -1,4 +1,4 @@
-const Course = require("../../../model/courseSchema");
+const Course = require("../../../model/PracticeModel/courseSchema");
 
 const allCourseController = async (req, res) => {
   const getcourse = await Course.find({

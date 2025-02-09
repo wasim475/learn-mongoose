@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Course = require("../../../model/courseSchema");
+const Course = require("../../../model/PracticeModel/courseSchema");
 
 const updateCorseController = async (req, res) => {
   const { id } = req.body;

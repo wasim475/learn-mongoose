@@ -1,6 +1,6 @@
-const { BatterEM, TeamEM } = require('../../../model/embeddingModel');
-const { TeamEMA, BatterEMA } = require('../../../model/embeddingWithArray');
-const { Batters } = require("../../../model/referencingModel");
+const { BatterEM, TeamEM } = require('../../../model/PracticeModel/embeddingModel');
+const { TeamEMA, BatterEMA } = require('../../../model/PracticeModel/embeddingWithArray');
+const { Batters } = require("../../../model/PracticeModel/referencingModel");
 
 const createEMBatterWithArr = async (req, res) => {
   const { batterName, teamId } = req.body;

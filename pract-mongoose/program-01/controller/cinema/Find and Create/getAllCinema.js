@@ -1,4 +1,4 @@
-const Cinema = require('../../../model/cinemaModel')
+const Cinema = require('../../../model/PracticeModel/cinemaModel')
 
 const getAllCinema = async (req,res)=>{
     const allCinema = await Cinema.find()

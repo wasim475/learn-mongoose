@@ -1,4 +1,4 @@
-const Course = require('../../../model/courseSchema')
+const Course = require('../../../model/PracticeModel/courseSchema')
 
 const incController = async (req, res)=>{
     const {incPrice}= req.body

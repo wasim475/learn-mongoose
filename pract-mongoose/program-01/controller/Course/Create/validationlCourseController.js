@@ -1,4 +1,4 @@
-const courseV = require('../../../model/CourseModelWithValidation')
+const courseV = require('../../../model/PracticeModel/CourseModelWithValidation')
 
 const validationlCourseController = async (req,res)=>{
     const {name, tags, price, author} = req.body

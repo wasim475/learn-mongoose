@@ -1,4 +1,4 @@
-const Course = require("../../../model/courseSchema");
+const Course = require("../../../model/PracticeModel/courseSchema");
 
 const paginationController = async (req, res) => {
   const { pageNumber, pageSize } = req.body;

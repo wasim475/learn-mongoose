@@ -1,4 +1,4 @@
-const { Batters } = require("../../../model/referencingModel");
+const { Batters } = require("../../../model/PracticeModel/referencingModel");
 
 const teamInfo = async (req, res) => {
   const team = await Batters.find()
