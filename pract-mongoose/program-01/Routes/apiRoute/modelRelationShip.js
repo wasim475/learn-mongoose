@@ -7,6 +7,7 @@ const createEMBatter = require('../../controller/model relationShip/referencing/
 const _ = express.Router()
 
 _.post("/createembatter",createEMBatter)
+_.post("/createembatterwitharr",createEMBatter)
 _.post("/createbatter",createBatter)
 _.post("/createteam",createTeam)
 _.post("/createemteam",createEMTeam)

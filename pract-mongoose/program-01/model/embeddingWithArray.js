@@ -24,12 +24,12 @@ const BatterSchema = new Schema({
             message:"Batter name must be atleast 3 character long."
         }
     },
-    teamInfo: {
-        type: TeamSchema
+    teamInfo:{
+        type:[TeamSchema]
     },
 })
 
-const TeamEM = mongoose.model("teamEM", TeamSchema)
-const BatterEM = mongoose.model("batterEM", BatterSchema)
+const TeamEMA = mongoose.model("teamEMA", TeamSchema)
+const BatterEMA = mongoose.model("batterEMA", BatterSchema)
 
-module.exports = {TeamEM, BatterEM}
+module.exports = {TeamEMA, BatterEMA}

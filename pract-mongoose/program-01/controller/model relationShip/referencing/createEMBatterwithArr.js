@@ -1,7 +1,7 @@
 const { BatterEM, TeamEM } = require('../../../model/embeddingModel');
 const { Batters } = require("../../../model/referencingModel");
 
-const createEMBatter = async (req, res) => {
+const createEMBatterWithArr = async (req, res) => {
   const { batterName, teamId } = req.body;
   try {
     const team = await TeamEM.findOne({"_id":teamId})
@@ -16,4 +16,4 @@ const createEMBatter = async (req, res) => {
   }
 };
 
-module.exports = createEMBatter;
+module.exports = createEMBatterWithArr;
