@@ -6,10 +6,11 @@ const GenreSchema = new Schema({
         type:String,
         require:true,
         minlength:3,
-        maxlength:20
+        maxlength:20,
     }
 })
 
 const Genra = mongoose.model("genre",GenreSchema)
 
 module.exports = Genra;
+module.exports = GenreSchema
