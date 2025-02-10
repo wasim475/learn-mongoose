@@ -52,3 +52,5 @@ const Rental = mongoose.model("Rental", new Schema({
       }
 
 }))
+
+module.exports = Rental
