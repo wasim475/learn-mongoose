@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const { validate } = require('../PracticeModel/courseSchema')
-const GenreSchema = require('./MovieGenre')
+const {GenreSchema} = require('./MovieGenre')
 const { number, required } = require('joi')
 const {Schema}= mongoose
 
@@ -14,8 +14,9 @@ const movieSchema = new Schema({
         }
     },
     genre:{
-        type:GenreSchema
-    }, 
+        type:[GenreSchema],
+        required:true
+    },  
     numberInStock:{
         type:Number,
         required: true
