@@ -5,5 +5,7 @@ const _ = express.Router()
 
 _.post("/createmovie", createMovieController)
 _.post("/creategenre", createGenreController)
+_.post("/createrental", createRentalController)
+_.get("/rentals", getRentalsController)
 
 module.exports = _
